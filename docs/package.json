@@ -1,0 +1,22 @@
+{
+  "name": "RogueEngineDocs",
+  "version": "0.0.1",
+  "description": "Documentation for Rogue Engine",
+  "main": "index.js",
+  "authors": {
+    "name": "BeardScript",
+    "email": "martin@beardscript.com"
+  },
+  "repository": "/RogueEngineDocs",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "@vuepress/plugin-clean-urls": "^1.0.0-alpha.40"
+  }
+}
