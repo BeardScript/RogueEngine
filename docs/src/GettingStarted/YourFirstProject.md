@@ -10,7 +10,7 @@ Your project will be created at *selected/path/ProjectName*, so you don't have t
 
 When you're ready, click on **create**. This will create your project files and install the required node modules so **make sure you are connected to the internet before you do this**. Other than when creating a project, you can always use the editor offline.
 
-When your project is created it will open in the editor. Now you can start [importing assets](/Workflow/ImportingAssets) and [creating Scenes](/Assets/Scenes) and [components](/Assets/Components).
+When your project is created it will open in the editor. Now you can start [importing assets](/Workflow/ImportingAssets) and [creating Scenes](/assets/Scenes) and [components](/assets/Components).
 
 Keep in mind that your changes to the default scene will be lost unless you save it!
 

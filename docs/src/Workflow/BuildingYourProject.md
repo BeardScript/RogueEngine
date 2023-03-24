@@ -24,7 +24,7 @@ This folder has the name of your project with "_Data" at the end. It contains al
 
 #### Assets folder
 
-If your project has any [static assets](Workflow/StaticAssets) the Assets folder will have your **static** folder with all it's contents.
+If your project has any [static assets](/Workflow/StaticAssets) the Assets folder will have your **static** folder with all it's contents.
 
 #### index.html
 

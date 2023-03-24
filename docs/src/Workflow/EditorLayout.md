@@ -4,7 +4,7 @@ The Editor is divided in two main sections. At the top we have the Toolbar, and 
 
 ### The Toolbar
 
-At the left of the toolbar you'll find the transform controls. These allow us set the type of control we wish to use to mutate the transform properties of an [Object3D](https://threejs.org/docs/#api/en/core/Object3D) present in the current [Scene](/Assets/Scenes).
+At the left of the toolbar you'll find the transform controls. These allow us set the type of control we wish to use to mutate the transform properties of an [Object3D](https://threejs.org/docs/#api/en/core/Object3D) present in the current [Scene](/assets/Scenes).
 
 At the center of the toolbar you'll find the runtime controls. These are the play and pause button. When you press play, the Scene will start running and instead of the play button you'll see a stop one.
 

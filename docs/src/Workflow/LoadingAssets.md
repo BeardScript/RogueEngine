@@ -4,7 +4,7 @@ There are two types of Assets that you might want to load: Rogue Assets, and ext
 
 ### Rogue Assets
 
-These are [Scenes](/Assets/Scenes), [Materials](/Assets/Materials), [Audio Assets](/Assets/AudioAssets), [Components](/Assets/Components), and [Prefabs](/Assets/Prefabs). To learn how to "load" any of these check their respective articles.
+These are [Scenes](/assets/Scenes), [Materials](/assets/Materials), [Audio Assets](/assets/AudioAssets), [Components](/assets/Components), and [Prefabs](/assets/Prefabs). To learn how to "load" any of these check their respective articles.
 
 ### External Assets
 
@@ -26,7 +26,7 @@ To load a 3D model you can drag the file and drop it either directly on the **Sc
 
 #### Audio Files
 
-Audio Files can be turned into [Audio Assets](/Assets/AudioAssets) that you can use in your [Components](/Assets/Components). Right click on your file and select the **Create Audio Asset** option from the context menu.
+Audio Files can be turned into [Audio Assets](/assets/AudioAssets) that you can use in your [Components](/assets/Components). Right click on your file and select the **Create Audio Asset** option from the context menu.
 
 **Supported audio formats: wav, mp3, ogg, mkv.**
 
