@@ -6,7 +6,7 @@ When you select a Mesh in the **Hierarhy** or the **Scene** window you'll see it
 
 The **.rogueMaterial** file contains the serialization of a Three.js [Material](https://threejs.org/docs/#api/en/materials/Material) and it can be used by any number of meshes in the same project.
 
-The Material will be loaded by the [AssetManager](/workflow/assetmanager) and all Meshes using the same Material will have access to the same instance.
+The Material will be loaded by the [AssetManager](/Workflow/AssetManager) and all Meshes using the same Material will have access to the same instance.
 
 ### Saving a Material
 

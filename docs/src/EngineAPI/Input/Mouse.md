@@ -1,6 +1,6 @@
 ### Mouse
 
-The **Mouse** class keeps track of mouse events and provides access to these interactions. This class is instanced by the [Input](/EngineAPI/input) controller, and that's the only place where it should be used. For that reason, this class is not exposed by the engine.
+The **Mouse** class keeps track of mouse events and provides access to these interactions. This class is instanced by the [Input](/EngineAPI/Input) controller, and that's the only place where it should be used. For that reason, this class is not exposed by the engine.
 
 ## Properties
 

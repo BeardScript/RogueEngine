@@ -1,6 +1,6 @@
 ### TouchController
 
-The **TouchController** class keeps track of touch events and provides access to these interactions. This class is instanced by the [Input](/EngineAPI/input) controller, and that's the only place where it should be used. For that reason, this class is not exposed by the engine.
+The **TouchController** class keeps track of touch events and provides access to these interactions. This class is instanced by the [Input](/EngineAPI/Input) controller, and that's the only place where it should be used. For that reason, this class is not exposed by the engine.
 
 ## Properties
 
@@ -10,7 +10,7 @@ The **TouchController** class keeps track of touch events and provides access to
 readonly startTouches: TouchInteraction[]
 ```
 
-An array of [TouchInteraction](/EngineAPI/input/touchinteraction) objects which contains all touch events that have started in the current frame.
+An array of [TouchInteraction](/EngineAPI/Input#touchinteraction-type) objects which contains all touch events that have started in the current frame.
 
 #### .endTouches
 
@@ -18,7 +18,7 @@ An array of [TouchInteraction](/EngineAPI/input/touchinteraction) objects which 
 readonly endTouches: TouchInteraction[]
 ```
 
-An array of [TouchInteraction](/EngineAPI/input/touchinteraction) objects which contains all touch events that have ended in the current frame.
+An array of [TouchInteraction](/EngineAPI/Input#touchinteraction-type) objects which contains all touch events that have ended in the current frame.
 
 #### .touches
 
@@ -26,7 +26,7 @@ An array of [TouchInteraction](/EngineAPI/input/touchinteraction) objects which 
 readonly touches: TouchInteraction[]
 ```
 
-An array of [TouchInteraction](/EngineAPI/input/touchinteraction) objects which contains all touch events that are still happening in the current frame.
+An array of [TouchInteraction](/EngineAPI/Input#touchinteraction-type) objects which contains all touch events that are still happening in the current frame.
 
 #### .enabled
 

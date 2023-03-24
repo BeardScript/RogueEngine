@@ -4,7 +4,7 @@ The Editor is divided in two main sections. At the top we have the Toolbar, and 
 
 ### The Toolbar
 
-At the left of the toolbar you'll find the transform controls. These allow us set the type of control we wish to use to mutate the transform properties of an [Object3D]() present in the current [Scene](/assets/scenes).
+At the left of the toolbar you'll find the transform controls. These allow us set the type of control we wish to use to mutate the transform properties of an [Object3D](https://threejs.org/docs/#api/en/core/Object3D) present in the current [Scene](/Assets/Scenes).
 
 At the center of the toolbar you'll find the runtime controls. These are the play and pause button. When you press play, the Scene will start running and instead of the play button you'll see a stop one.
 
@@ -20,7 +20,7 @@ The Project Window contains a file manager where you have access to all of your 
 
 #### Console Window
 
-The Console Window is where you'll see any logs coming from the [Debug](/EngineAPI/debug) class.
+The Console Window is where you'll see any logs coming from the [Debug](/EngineAPI/Debug) class.
 
 #### Hierarchy Window
 
@@ -41,4 +41,4 @@ You have two different modes to select: procedural and cubemap. If you feel this
 
 #### Asset Manager Window
 
-The Asset Manager lets us set our Asset's loading configurations for the current Scene. See the [Asset Manager](/workflow/assetmanager) section for more info.
+The Asset Manager lets us set our Asset's loading configurations for the current Scene. See the [Asset Manager](/Workflow/AssetManager) section for more info.

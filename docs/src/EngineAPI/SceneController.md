@@ -1,6 +1,6 @@
 ### SceneController
 
-The **SceneController** is an abstract class so it should never be directly instantiated. This class defines the life cycle of a Scene and its components. The [Runtime](EngineAPI/runtime) and **editorRuntime** both extend this class to implement functionality related to the scene when it's being played, and the scene when it's being edited respectively.
+The **SceneController** is an abstract class so it should never be directly instantiated. This class defines the life cycle of a Scene and its components. The [Runtime](/EngineAPI/Runtime) and **editorRuntime** both extend this class to implement functionality related to the scene when it's being played, and the scene when it's being edited respectively.
 
 ### Properties
 

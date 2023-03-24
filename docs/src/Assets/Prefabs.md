@@ -1,6 +1,6 @@
 ### Prefabs
 
-Prefabs are pre-fabricated objects stored in **.roguePrefab** files that we can drop into our scene or set as a reference of a **Prefab** field in a [Component](/EngineAPI/component).
+Prefabs are pre-fabricated objects stored in **.roguePrefab** files that we can drop into our scene or set as a reference of a **Prefab** field in a [Component](/EngineAPI/Component).
 
 ### Creating Prefabs
 
@@ -18,4 +18,4 @@ When you load a prefab it is no longer attached to the file. so if you make any 
 
 ### Learn More
 
-To learn how you can use Prefabs in your components see the documentation for the [Prefab](/EngineAPI/prefab) class.
+To learn how you can use Prefabs in your components see the documentation for the [Prefab](/EngineAPI/Prefab) class.

@@ -14,4 +14,4 @@ To use an Audio Asset, drag and drop it on an [Audio](https://threejs.org/docs/#
 
 ### Learn More
 
-To learn more about Audio Assets see the documentation for the [AudioAsset](/EngineAPI/audioasset) class.
+To learn more about Audio Assets see the documentation for the [AudioAsset](/EngineAPI/AudioAsset) class.

@@ -24,7 +24,7 @@ RE.registerComponent(MyComponent);
 ```typescript
 addComponent(component: Component)
 ```
-This function adds the given instance of a component to the Engine's internal components map. This makes it available to the active [SceneController](/EngineAPI/scenecontroller) which will proceed to "awaken" it and run its loop methods every frame. In a way, this function brings the component to life, so if you wish to do something with the component before it gets into the animation loop you should do it before calling it.
+This function adds the given instance of a component to the Engine's internal components map. This makes it available to the active [SceneController](/EngineAPI/SceneController) which will proceed to "awaken" it and run its loop methods every frame. In a way, this function brings the component to life, so if you wish to do something with the component before it gets into the animation loop you should do it before calling it.
 
 **Note:** this function triggers the [onComponentAdded](#oncomponentadded) event.
 
@@ -34,7 +34,7 @@ This function adds the given instance of a component to the Engine's internal co
 removeComponent(component: Component)
 ```
 
-This function removes the given instance of a component from the Engine's internal components map. This makes it unavailable to the active [SceneController](/EngineAPI/scenecontroller) stopping its animation loop functions. Since the relation to the [Object3D](https://threejs.org/docs/#api/en/core/Object3D) is set within the component, calling this function will also make the component unavailable to that object. Make sure you lose any reference to it so that it can be garbage collected as soon as possible.
+This function removes the given instance of a component from the Engine's internal components map. This makes it unavailable to the active [SceneController](/EngineAPI/SceneController) stopping its animation loop functions. Since the relation to the [Object3D](https://threejs.org/docs/#api/en/core/Object3D) is set within the component, calling this function will also make the component unavailable to that object. Make sure you lose any reference to it so that it can be garbage collected as soon as possible.
 
 **Note:** this function triggers the [onComponentRemoved](#oncomponentremoved) event.
 
@@ -53,7 +53,7 @@ This handy and flexible function lets us remove all components related to the gi
 ```typescript
 getComponent<T extends Component>( ComponentClass: new (... args: any[]) => T, object3d: THREE.Object3D ): T | undefined
 ```
-This function retrieves a [Component](/EngineAPI/component) related to an [Object3D](https://threejs.org/docs/#api/en/core/Object3D). This is handy if you don't want to remember component names or keep maps with them. Just call this function passing in the component type and the **Object3D**. If it can't find anything it'll return undefined.
+This function retrieves a [Component](/EngineAPI/Component) related to an [Object3D](https://threejs.org/docs/#api/en/core/Object3D). This is handy if you don't want to remember component names or keep maps with them. Just call this function passing in the component type and the **Object3D**. If it can't find anything it'll return undefined.
 
 **Example:**
 
@@ -72,14 +72,14 @@ function getMyComponent(object3d: Object3D) {
 ```typescript
 getComponents<T extends Component>( ComponentClass: new (... args: any[]) => T ): T[]
 ```
-This function retrieves all the [Component](/EngineAPI/component)s of the given type.
+This function retrieves all the [Component](/EngineAPI/Component)s of the given type.
 
 ### getObjectComponents
 
 ```typescript
 getObjectComponents(object3d: Object3D): Component[]
 ```
-This function retrieves all the [Component](/EngineAPI/component)s related to the given [Object3D](https://threejs.org/docs/#api/en/core/Object3D).
+This function retrieves all the [Component](/EngineAPI/Component)s related to the given [Object3D](https://threejs.org/docs/#api/en/core/Object3D).
 
 ### getComponentByName
 
@@ -94,7 +94,7 @@ This handy function returns the first component with the given name, found in th
 ```typescript
 traverseComponents(fn: (component: Component, objectUUID: string, index: number) => void)
 ```
-Runs the given function for every [Component](/EngineAPI/component) present in the current scene.
+Runs the given function for every [Component](/EngineAPI/Component) present in the current scene.
 
 ### getStaticPath
 
@@ -103,7 +103,7 @@ getComponentByName(path: string): string
 ```
 This function attaches the static folder address to the given path, which should be passed **without the initial slash (/)**. You should always use this method for your static assets given that it'll handle both the address in development and in a built project.
 
-For more information see the [Static Assets](/workflow/StaticAssets) article.
+For more information see the [Static Assets](/Workflow/StaticAssets) article.
 
 **Example:**
 

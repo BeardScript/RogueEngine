@@ -8,7 +8,7 @@ The first and most important thing is that you store your static assets in *Proj
 
 ### Static folder url
 
-The url of the static folder will not be the same in development and in your built project. In order to get the correct path from your code you should use the [getStaticPath](/EngineAPI/functions#getstaticpath) function, which will attach the static folder address to a given path.
+The url of the static folder will not be the same in development and in your built project. In order to get the correct path from your code you should use the [getStaticPath](/EngineAPI/Functions#getstaticpath) function, which will attach the static folder address to a given path.
 
 ### Built Project
 

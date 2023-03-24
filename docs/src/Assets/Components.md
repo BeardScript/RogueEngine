@@ -10,7 +10,7 @@ Rogue Components are Asynchronous by nature. For this reason they come equipped 
 
 A component will stay idle until it's **ready**.
 
-You can tailor your approach by setting the loading configuration of your Assets in the [Asset Manager](/workflow/assetmanager) window.
+You can tailor your approach by setting the loading configuration of your Assets in the [Asset Manager](/Workflow/AssetManager) window.
 
 ### Creating Components
 
@@ -50,4 +50,4 @@ The graphic interface of a component is defined within the component's class. Yo
 
 ### API
 
-For more information on how components work, visit the [Component](/EngineAPI/component) class code reference.
+For more information on how components work, visit the [Component](/EngineAPI/Component) class code reference.

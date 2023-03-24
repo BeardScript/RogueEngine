@@ -102,7 +102,7 @@ onComponentRemoved((component, target) => {
 onBeforeUpdate(callback: (sceneController: SceneController) => void): {stop: () => void}
 ```
 
-This event listener takes a callback function as a parameter which will be executed in the **beforeUpdate()** event of any active [SceneController](EngineAPI/scenecontroller). In practice, this means that the given function will be called both in the editor's and the runtime's animation loop. The callback gives us the [SceneController](EngineAPI/scenecontroller) instance responsible for firing the event.
+This event listener takes a callback function as a parameter which will be executed in the **beforeUpdate()** event of any active [SceneController](/EngineAPI/SceneController). In practice, this means that the given function will be called both in the editor's and the runtime's animation loop. The callback gives us the [SceneController](/EngineAPI/SceneController) instance responsible for firing the event.
 
 Remember to stop listening to this event when you don't need it anymore by calling the **stop()** function in the object returned by this function.
 
@@ -154,7 +154,7 @@ onUpdate(() => {
 onAfterUpdate(callback: (sceneController: SceneController) => void): {stop: () => void}
 ```
 
-This event listener takes a callback function as a parameter which will be executed in the **afterUpdate()** event of any active [SceneController](EngineAPI/scenecontroller). In practice, this means that the given function will be called both in the editor's and the runtime's animation loop. The callback gives us the [SceneController](EngineAPI/scenecontroller) instance responsible for firing the event.
+This event listener takes a callback function as a parameter which will be executed in the **afterUpdate()** event of any active [SceneController](/EngineAPI/SceneController). In practice, this means that the given function will be called both in the editor's and the runtime's animation loop. The callback gives us the [SceneController](/EngineAPI/SceneController) instance responsible for firing the event.
 
 Remember to stop listening to this event when you don't need it anymore by calling the **stop()** function in the object returned by this function.
 
@@ -179,7 +179,7 @@ onAfterUpdate(() => {
 onNextFrame(callback: (sceneController: SceneController) => void): void
 ```
 
-This event listener takes a callback function as a parameter to be executed in the next frame. The callback gives us the [SceneController](EngineAPI/scenecontroller) instance responsible for firing the event.
+This event listener takes a callback function as a parameter to be executed in the next frame. The callback gives us the [SceneController](/EngineAPI/SceneController) instance responsible for firing the event.
 
 ### Example
 

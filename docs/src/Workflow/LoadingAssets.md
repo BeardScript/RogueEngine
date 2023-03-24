@@ -4,7 +4,7 @@ There are two types of Assets that you might want to load: Rogue Assets, and ext
 
 ### Rogue Assets
 
-These are [Scenes](/Assets/scenes), [Materials](/assets/materials), [Audio Assets](/assets/audioassets), [Components](/assets/components), and [Prefabs](/assets/prefabs). To learn how to "load" any of these check their respective articles.
+These are [Scenes](/Assets/Scenes), [Materials](/Assets/Materials), [Audio Assets](/Assets/AudioAssets), [Components](/Assets/Components), and [Prefabs](/Assets/Prefabs). To learn how to "load" any of these check their respective articles.
 
 ### External Assets
 
@@ -26,10 +26,10 @@ To load a 3D model you can drag the file and drop it either directly on the **Sc
 
 #### Audio Files
 
-Audio Files can be turned into [Audio Assets](/assets/audioassets) that you can use in your [Components](/assets/components). Right click on your file and select the **Create Audio Asset** option from the context menu.
+Audio Files can be turned into [Audio Assets](/Assets/AudioAssets) that you can use in your [Components](/Assets/Components). Right click on your file and select the **Create Audio Asset** option from the context menu.
 
 **Supported audio formats: wav, mp3, ogg, mkv.**
 
 ### Static Assets
 
-Another way to load assets is to treat them as static files. To do this you just have to put them inside *Assets/static*. This route will be available from your built project as well so, go nuts... but not too much eh! Remember the loading times and all that. Fetch them wisely.
+Another way to load assets is to treat them as static files. To do this you just have to put them inside *Assets/Static*. This route will be available from your built project as well so, go nuts... but not too much eh! Remember the loading times and all that. Fetch them wisely.

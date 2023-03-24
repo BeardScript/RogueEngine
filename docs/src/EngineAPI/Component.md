@@ -194,7 +194,7 @@ A component that is not ready will only execute the [awake](#awake) method. As s
 
 When using the component from another script, you should check this property to make sure the assets declared in its interface property are loaded before using them. you can safely use them in all methods of the component they belong to, with exception of its [awake](#awake) method.
 
-If all the assets declared in its interface property are set to **preload** in the [AssetManager](/workflow/AssetManager) or have been **kept loaded** from previous scenes, the component will be immediately ready.
+If all the assets declared in its interface property are set to **preload** in the [AssetManager](/Workflow/AssetManager) or have been **kept loaded** from previous scenes, the component will be immediately ready.
 
 ### Methods
 

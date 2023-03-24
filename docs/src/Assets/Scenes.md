@@ -2,7 +2,7 @@
 
 Scenes are the scenario where we display our assets and create our environments. In the case of games, they can be treated as independent levels or even portions of the same map. To give you an example, you could load a whole new scene every time a player goes through a door.
 
-Scenes are stored in **.rogueScene** files that contain the serialization of the three.js [Scene](https://threejs.org/docs/#api/en/scenes/Scene) object, the components being used by the objects in the scene, the [Skybox](/workflow/EditorLayout#skybox-window), and the [asset configurations](/workflow/assetmanager/#asset-configurations).
+Scenes are stored in **.rogueScene** files that contain the serialization of the three.js [Scene](https://threejs.org/docs/#api/en/scenes/Scene) object, the components being used by the objects in the scene, the [Skybox](/Workflow/EditorLayout#skybox-window), and the [asset configurations](/Workflow/AssetManager#asset-configurations).
 
 ### Default Scene
 

@@ -20,13 +20,13 @@ You can set An Asset to **preload**, **keep loaded**, and/or **override**.
 
 #### Preload
 
-Setting an asset to **preload** tells the [Scene](/assets/scenes) that we want to fetch and load that asset before the Scene is initialized.
+Setting an asset to **preload** tells the [Scene](/Assets/Scenes) that we want to fetch and load that asset before the Scene is initialized.
 
 This is great for things that need to be readily available. Keep in mind that the more the assets you set to preload the longer it will take for your Scene to start.
 
 #### Keep Loaded
 
-This option tells the [Scene](/assets/scenes) that we want this Asset to stay loaded in the next Scene. This is a neat way to keep your loading time short when you know an Asset will be used in other scenes.
+This option tells the [Scene](/Assets/Scenes) that we want this Asset to stay loaded in the next Scene. This is a neat way to keep your loading time short when you know an Asset will be used in other scenes.
 
 #### override
 
