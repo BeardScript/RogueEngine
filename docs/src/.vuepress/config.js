@@ -87,7 +87,7 @@ module.exports = {
           "/EngineAPI/Debug",
           {
             title: "Input",
-            // path: "/EngineAPI/Input",
+            path: "/EngineAPI/Input/Input",
             collapsable: false,
             children: [
               "/EngineAPI/Input/Mouse",

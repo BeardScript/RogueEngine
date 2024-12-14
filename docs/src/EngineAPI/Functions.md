@@ -51,9 +51,15 @@ This handy and flexible function lets us remove all components related to the gi
 ### getComponent
 
 ```typescript
-getComponent<T extends Component>( ComponentClass: new (... args: any[]) => T, object3d: THREE.Object3D ): T | undefined
+getComponent<T extends Component>( ComponentClass: new (... args: any[]) => T, object3d: THREE.Object3D, inAncestor?: boolean ): T
 ```
-This function retrieves a [Component](/EngineAPI/Component) related to an [Object3D](https://threejs.org/docs/#api/en/core/Object3D). This is handy if you don't want to remember component names or keep maps with them. Just call this function passing in the component type and the **Object3D**. If it can't find anything it'll return undefined.
+This function retrieves a [Component](/EngineAPI/Component) related to an [Object3D](https://threejs.org/docs/#api/en/core/Object3D). This is handy if you don't want to remember component names or keep maps with them. Just call this function passing in the component type and, optionally, the **Object3D**. If it can't find anything it'll return undefined.
+
+If you don't pass in an **Object3D** it will return the first component it can find of the given type.
+
+When the **inAncestor** argument is true, if it can't find the given component in the given object, it will look for it in its ancestors. You must provide an **Object3D** if inAncestor is set to true.
+
+When possible always use [ComponentClass.get()](/EngineAPI/Component#get) instead of this method.
 
 **Example:**
 
@@ -84,10 +90,14 @@ This function retrieves all the [Component](/EngineAPI/Component)s related to th
 ### getComponentByName
 
 ```typescript
-getComponentByName(name: string, object3d?: Object3D): Object3D | undefined
+getComponentByName(name: string, object3d?: Object3D, inAncestor?: boolean): Component
 ```
 
 This handy function returns the first component with the given name, found in the Engine's internal components map. If you pass in the optional [Object3D](https://threejs.org/docs/#api/en/core/Object3D) parameter, it will return the first component with the given name within that object. This is the preferred way since not only it does not require you to keep unique names for all your components throughout the scene, but it is also more performant. So, if you know the **Object3D**, pass it in.
+
+When the **inAncestor** argument is true, if it can't find the given component in the given object, it will look for it in its ancestors. You must provide an **Object3D** if inAncestor is set to true.
+
+When possible always use [ComponentClass.get()](/EngineAPI/Component#get) instead of this method.
 
 ### traverseComponents
 
@@ -99,7 +109,7 @@ Runs the given function for every [Component](/EngineAPI/Component) present in t
 ### getStaticPath
 
 ```typescript
-getComponentByName(path: string): string
+getStaticPath(path: string): string
 ```
 This function attaches the static folder address to the given path, which should be passed **without the initial slash (/)**. You should always use this method for your static assets given that it'll handle both the address in development and in a built project.
 
@@ -110,7 +120,7 @@ For more information see the [Static Assets](/Workflow/StaticAssets) article.
 ```javascript
 import { getStaticPath } from 'rogue-engine';
 ...
-// Retrieves the addres of the icon at: Assets/Static/icons/myIcon.svg
+// Retrieves the addres of the icon at: /Static/icons/myIcon.svg
 imgElement.src = getStaticPath("icons/myIcon.svg");
 
 ```
@@ -134,7 +144,7 @@ import * as THREE from 'three';
 @RE.props.object3d() target: THREE.Object3D;
 
 start() {
-  imgElement.src = RE.setEnabled(this.target, true);
+  RE.setEnabled(this.target, true);
 }
 
 ```
@@ -176,8 +186,115 @@ import * as THREE from 'three';
 
 doSomething(object: THREE.Object3D) {
   if (RE.isActive(object)) {
-    // do something if object is active
+    // Do something if object is active
   }
 }
+
+```
+
+### pick
+
+```typescript
+pick(targets: THREE.Object3D[]): THREE.Object3D | undefined
+```
+Picks an object under the pointer device. Supports both mouse and touch.
+
+**Example:**
+
+```javascript
+import * as RE from 'rogue-engine';
+...
+
+update() {
+  if (RE.Input.getDown("Select")) {
+    // Get all objects in the scene with the "Selectable" tag
+    const targets = RE.Tags.getWithAll("Selectable");
+    // Pick the one under the pointer device.
+    const picked = RE.pick(targets);
+
+    if (picked) {
+      // Do something with the picked object.
+    }
+  }
+}
+
+```
+
+### getNearestWithTag
+
+```typescript
+getNearestWithTag(obj: THREE.Object3D, tag: string): THREE.Object3D | undefined
+```
+Gets the nearest parent of the given object with the given tag. This is especially useful to get the container of a nested object.
+
+**Example:**
+
+```javascript
+import * as RE from 'rogue-engine';
+...
+
+update() {
+  // Capture a "Select" action input in this frame.
+  if (RE.Input.getDown("Select")) {
+    // Get all objects in the scene with the "Selectable" tag.
+    const targets = RE.Tags.getWithAll("Selectable");
+    // Pick the one under the pointer device.
+    const picked = RE.pick(targets);
+
+    if (picked) {
+      // Get the container of the picked mesh.
+      const container = RE.getNearestWithTag(picked, "Selectable");
+    }
+  }
+}
+
+```
+
+### getNearestGroup
+
+```typescript
+getNearestGroup(obj: THREE.Object3D): THREE.Group | undefined
+```
+Gets the nearest parent of type THREE.Group. This is especially useful to get the container of a nested object.
+
+**Example:**
+
+```javascript
+import * as RE from 'rogue-engine';
+...
+
+update() {
+  // Capture a "Select" action input in this frame.
+  if (RE.Input.getDown("Select")) {
+    // Get all objects in the scene with the "Selectable" tag.
+    const targets = RE.Tags.getWithAll("Selectable");
+    // Pick the one under the pointer device.
+    const picked = RE.pick(targets);
+
+    if (picked) {
+      // Get the container group of the picked mesh.
+      const group = RE.getNearestGroup(picked);
+    }
+  }
+}
+
+```
+
+### getNormalizedDeviceCoordinates
+
+```typescript
+getNormalizedDeviceCoordinates(x: number, y: number): {x: number, y: number}
+```
+Takes screen space coordinates and returns a Vector with the normalized device coordinates.
+
+**Example:**
+
+```javascript
+import * as RE from 'rogue-engine';
+...
+
+const ndc = RE.getNormalizedDeviceCoordinates(Input.mouse.x, Input.mouse.y);
+
+raycaster.setFromCamera(ndc, RE.App.sceneController.camera);
 
 ```

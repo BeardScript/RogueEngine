@@ -20,6 +20,22 @@ readonly y: number
 
 This is the position of the mouse on the y-axis of the screen. This is analogous to the **clientY** property of the **MouseEvent**.
 
+#### .viewX
+
+```typescript
+readonly viewX: number
+```
+
+This is the position of the mouse on the x-axis relative to the canvas.
+
+#### .viewY
+
+```typescript
+readonly viewY: number
+```
+
+This is the position of the mouse on the y-axis relative to the canvas.
+
 #### .movementX
 
 ```typescript
@@ -156,4 +172,36 @@ Setting this property, disables or enables the mouse controls.
 lock(): void
 ```
 
-Handy function to lock the mouse pointer using the three js **PointerLockControls** instance referenced in the **pointerLock** property.
+Handy function to lock the mouse pointer using the three js **PointerLockControls** instance referenced in the **pointerLock** property. 
+
+#### .unlock
+
+```typescript
+unlock(): void
+```
+
+Unlocks the mouse pointer when locked.
+
+#### .getButtonDown
+
+```typescript
+getButtonDown(button: number): boolean
+```
+
+This method tells us if the key with the given mouse button has been pressed in the current frame. If true, will be set to false in the next frame.
+
+#### .getButtonPressed
+
+```typescript
+getButtonPressed(button: number): boolean
+```
+
+This method tells us if the key with the given mouse button is being pressed. If true, will be set to false when the button is released.
+
+#### .getButtonUp
+
+```typescript
+getButtonUp(button: number): boolean
+```
+
+This method tells us if the key with the given mouse button has been released in the current frame. If true, will be set to false in the next frame.

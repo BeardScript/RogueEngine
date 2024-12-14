@@ -12,4 +12,4 @@ The url of the static folder will not be the same in development and in your bui
 
 ### Built Project
 
-If you have any static files, your built project will include the *Assets/Static/* folder with all its contents.
+If you have any static files, your built project will include the */Static/* folder with all its contents.

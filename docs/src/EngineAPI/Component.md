@@ -45,15 +45,65 @@ addComponent(component);
 
 ```
 
+### Static
+
+#### get
+
+```typescript
+static get<T>(this: {new (...args: any[]): T}): T
+static get<T>(this: {new (...args: any[]): T}, object3d: Object3D): T
+static get<T>(this: {new (...args: any[]): T}, object3d: Object3D, inAncestor?: boolean): T
+static get<T>(this: {new (...args: any[]): T}, name: string, object3d?: Object3D): T
+static get<T>(this: {new (...args: any[]): T}, name: string, object3d: Object3D, inAncestor?: boolean): T
+```
+
+Retrieves a component of the same class. You can pass in the object containing the component and whether you want to look for it in an ancestor. Alternatively you can pass in the name first. This method in now preferred in place of either [RE.getComponent()](Functions#getcomponent) or [RE.getComponentByName()](Functions#getcomponentbyname).
+
+##### Example
+
+```typescript
+ComponentClass.get() // Finds the first component of this type
+ComponentClass.get(this.object3d) // Finds the component in this.object3d
+ComponentClass.get(this.object3d, true) // Finds the component in this.object3d in ancestors
+ComponentClass.get("MyComponent") // Finds the component of this class with the name "MyComponent"
+ComponentClass.get("MyComponent", this.object3d) // Finds the component of this class with the name "MyComponent" in this.object3d
+ComponentClass.get("MyComponent", this.object3d, true) // Finds the component of this class with the name "MyComponent" in this.object3d or its ancestors
+```
+
 ### Decorators
 
-We can use decorators to provide a graphic interface for our component properties within the editor. In order to do this we need to fetch the decorators from `RE.props`.
+#### require
+
+```typescript
+static require(inAncestor?: boolean);
+static require(name: string, inAncestor?: boolean);
+```
+Use this decorator on a property in order to set it to a component in this object or an ancestor. This helps ensure the access to the given component without the need to retrieve it later on.
+
+##### Example
+
+```typescript
+@ComponentClass.require()
+someComponent: ComponentClass;
+
+@AnotherComponent.require(true) // Find it in ancestor
+anotherComponent: AnotherComponent;
+
+@MyComponent.require("Hello") // Find it by name
+myComponent: MyComponent;
+
+@MyComponent.require("YourComponent", true) // Find by name in ancestor
+yourComponent: MyComponent;
+
+```
 
 #### RE.props
 
 ```typescript
 props: Props
 ```
+
+We can use decorators to provide a graphic interface for our component properties within the editor. In order to do this we need to fetch the decorators from `RE.props`.
 
 This object contains all the available decorators.
 
@@ -87,6 +137,13 @@ class MyComponent extends RE.Component {
   @RE.props.button() doSomething = () => {/*Do Stuff*/};
 doSomethingLabel = "Do Something";
   @RE.props.data() serializeThis = {prop: "Hello World"};
+  @RE.props.component(ComponentClass) myComponent: ComonentClass;
+
+  // Create a list with any of the previous decorators
+  @RE.props.list.object3d() objects: THREE.Object3D = [];
+
+  // Create a key/value list with any of the previous decorators
+  @RE.props.map.num() values: Record<string, number> = {};
 }
 ```
 

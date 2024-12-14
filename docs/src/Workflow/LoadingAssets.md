@@ -32,4 +32,4 @@ Audio Files can be turned into [Audio Assets](/assets/AudioAssets) that you can 
 
 ### Static Assets
 
-Another way to load assets is to treat them as static files. To do this you just have to put them inside *Assets/Static*. This route will be available from your built project as well so, go nuts... but not too much eh! Remember the loading times and all that. Fetch them wisely.
+Another way to load assets is to treat them as static files. To do this you just have to put them inside *ProjectFolder/Static*. This route will be available from your built project as well so, go nuts... but not too much eh! Remember the loading times and all that. Fetch them wisely.

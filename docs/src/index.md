@@ -1,16 +1,10 @@
+### Getting Started
+
+This video by [Mark Vanstone](https://twitter.com/MindExplorers) is a great help to get started.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/43mwbL5kp9w?si=USEgTf0fX48NdWmN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ### Installation
-
-### Requirements
-
-The first thing you need to do before installing Rogue Engine is to make sure that [Node.js](https://nodejs.org/en/download/) is installed in your computer.
-
-If you're not sure, you should open a terminal and write the following command:
-
-```bash
-node -v
-```
-
-This should show you the Node.js version, if you get an error, it means you need to [download and install Node.js](https://nodejs.org/en/download/).
 
 ### Download Rogue Engine
 
@@ -20,6 +14,6 @@ Now it's time to [download Rogue Engine](https://rogueengine.io/download). Choos
 
 On OSX installation should be as simple as any other. Open the installer and drag the Rogue Engine icon into the Applications folder as instructed.
 
-On Windows and Linux, open the installer and follow the instructions.
+On Windows and Linux, open the installer and follow the instructions. In the case of Windows it may say the app is unrecognized, that's totally normal since the app is not signed. Just hit Run Anyway.
 
 You should be able to open Rogue Engine now. Follow me to the next article where I'll show you how to create your first project.
