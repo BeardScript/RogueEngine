@@ -6,6 +6,8 @@ Now that you have Rogue Engine installed and know how to open and create project
 
 Watch the video tutorials and other useful content on [BeardScript's YouTube channel](https://www.youtube.com/channel/UCPQzvVxStUywZUsLcEuE16g). You can also benefit from any Three.js tutorial you can find.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OIorPLKWCv4?si=GaSJxNMl_wW2_wR9" title="YouTube video player2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <iframe
   width="560"
   height="315"
@@ -51,3 +53,5 @@ Most of us hate it at the beginning and end up loving it 😍.
 If you haven't yet, [join the community](https://rogueengine.io/#community). This is a great way to interact and learn with other people using either Rogue Engine and Three.js.
 
 Be respectful, be mindful and don't hesitate to offer your help if you can. I'm sure someone will reciprocate. It goes both ways.
+
+[BeardScript](https://x.com/BeardScript)🧉 is always around on [Discord](https://discord.gg/PnxAsck) to provide assistance.

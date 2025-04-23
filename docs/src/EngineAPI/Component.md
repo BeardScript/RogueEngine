@@ -115,36 +115,68 @@ Here's a detailed list of all the possible decorators.
 import * as RE from 'rogue-engine';
 
 class MyComponent extends RE.Component {
+  // Every prop bellow group() will be inside a grup until you open the next one.
+  @RE.props.group("Basic Props", true) // omit second argument for a non-foldable group.
   @RE.props.num() num = 0;
   @RE.props.num(0, 1) slider = 0.5;
   @RE.props.checkbox() toggleSomething = true;
   @RE.props.text() textInput = "";
   @RE.props.text(true) textArea = ``;
-  @RE.props.code("html") inlineCodeEditor = ``; // options: "json" | "html" | "glsl"
-  @RE.props.select() dropdown = 0;
-  dropdownOptions = ["option1", "option2"];
-  @RE.props.text() textInput = "";
-  @RE.props.vector2() vector = new THREE.Vector2();
-  @RE.props.vector3() vector = new THREE.Vector3();
+
+  @RE.props.group("Assets", true)
   @RE.props.object3d() hierarchyObj: THREE.Object3D;
   @RE.props.prefab() prefab: RE.Prefab;
   @RE.props.material() mat: THREE.Material;
-  @RE.props.texture() texture: TREE.Texture;
   @RE.props.audio() sound: THREE.Audio;
   @RE.props.audio(true) positionalSound: TREE.PositionalAudio;
   @RE.props.animation() clip: TREE.AnimationClip;
   @RE.props.texture() texture: TREE.Texture;
-  @RE.props.button() doSomething = () => {/*Do Stuff*/};
-doSomethingLabel = "Do Something";
+
+  @RE.props.group("Others", true)
   @RE.props.data() serializeThis = {prop: "Hello World"};
   @RE.props.component(ComponentClass) myComponent: ComonentClass;
+  @RE.props.code("html") inlineCodeEditor = ``; // options: "json" | "html" | "glsl"
+  @RE.props.vector2() vector = new THREE.Vector2();
+  @RE.props.vector3() vector = new THREE.Vector3();
 
-  // Create a list with any of the previous decorators
+  // Creates a Button that performs the given function when pressed.
+  @RE.props.button() doSomething = () => {/*Do Stuff*/};
+  // The label of the Button is set in a prop with the word Label added to its name.
+  doSomethingLabel = "Do Something";
+
+  // Creates a drowpdown, the number represents the index in the list of values.
+  @RE.props.select() dropdown = 0;
+  // The array of values is defined in a prop with the word Options added to its name.
+  dropdownOptions = ["option1", "option2"];
+
+  // Creates a list with any of the previous decorators
   @RE.props.list.object3d() objects: THREE.Object3D = [];
 
-  // Create a key/value list with any of the previous decorators
+  // Creates a key/value list with any of the previous decorators
   @RE.props.map.num() values: Record<string, number> = {};
 }
+```
+
+##### Organizing Props
+
+You can use `@RE.props.group()` to visually organize properties in the inspector.
+
+```typescript
+  @RE.prop.text() outside = "This prop is outside the group"
+
+  // Every prop bellow group() will be inside a foldable until you open the next one.
+  @RE.props.group("My Foldable Group", true)
+  @RE.props.text() insideFoldable = "This is inside the foldable group";
+  @RE.props.list.text() insideList = ["This list prop is also", "inside the group"];
+  
+  // Here we're starting a new group.
+  @RE.props.group("My Static Group")
+  @RE.props.text() insideStaticGroup = "This is inside the static group";
+  @RE.props.list.text() listInsideStatic = ["This list prop is also", "inside the group"];
+
+  // Since I didn't include a name, this group is a line separator
+  @RE.props.group("")
+  @RE.props.num() numProp = 420; // This prop is bellow the line separator.
 ```
 
 #### Prop (Dropped)

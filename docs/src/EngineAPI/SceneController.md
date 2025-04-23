@@ -108,6 +108,30 @@ renderFunc: () => void
 
 This is the render function being called every frame. By default it calls **defaultRenderFunc**. By setting this property you can modify the behavior of the renderer to apply post-production effects among other things.
 
+### .resolution
+
+```typescript
+resolution?: number;
+```
+
+Sets the maximum screen width before we start scaling the renderer's pixel ratio. The lower the resolution, the higher the performance. If set to `0` or `undefined` the resolution is let free.
+
+### .aspectRatio
+
+```typescript
+aspectRatio?: number;
+```
+
+Fixes the aspect ratio of the canvas container. If set to `0` or `undefined` the aspect ratio is let free.
+
+### .useAspectRatio
+
+```typescript
+useAspectRatio: boolean;
+```
+
+This makes the aspect ratio visible in the current Runtime. It's used by the editor to preview the aspect ratio in edit mode.
+
 ### Methods
 
 #### .pause
@@ -130,6 +154,13 @@ togglePause(): void
 ```
 
 This handy method will toggle between [pause()](#pause) and [resume()](#resume).
+
+#### .setFullscreen
+``` typescript
+setFullscreen(): void;
+```
+
+Requests the browser to set the container div full screen.
 
 ### Events
 

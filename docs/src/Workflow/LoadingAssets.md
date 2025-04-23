@@ -33,3 +33,11 @@ Audio Files can be turned into [Audio Assets](/assets/AudioAssets) that you can 
 ### Static Assets
 
 Another way to load assets is to treat them as static files. To do this you just have to put them inside *ProjectFolder/Static*. This route will be available from your built project as well so, go nuts... but not too much eh! Remember the loading times and all that. Fetch them wisely.
+
+### Named Prefabs
+
+Probably, the most powerful feature in Rogue Engine after the components are **Prefabs**. We can load them by dropping them in a prefab field in the inspector or, alternatively, we can use Named Prefabs.
+
+Named Prefabs are all the prefab files located under `Assets/Prefabs/`. These can be dynamically loaded without the need to reference them in a component.
+
+We can do this using [RE.Prefab.instantiate()](/EngineAPI/Prefab#static-instantiate), [RE.Prefab.fetch()](/EngineAPI/Prefab#static-fetch), [RE.Prefab.get()](/EngineAPI/Prefab#static-get).

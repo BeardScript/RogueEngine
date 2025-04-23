@@ -12,8 +12,16 @@ Now it's time to [download Rogue Engine](https://rogueengine.io/download). Choos
 
 ### Install
 
-On OSX installation should be as simple as any other. Open the installer and drag the Rogue Engine icon into the Applications folder as instructed.
+On **OSX** the installation should be as simple as any other. Open the installer and drag the Rogue Engine icon into the Applications folder as instructed. If you're using a Silicon Mac (M1, M2, etc) Make sure you're using the arm64 installer.
 
-On Windows and Linux, open the installer and follow the instructions. In the case of Windows it may say the app is unrecognized, that's totally normal since the app is not signed. Just hit Run Anyway.
+On **Windows** and Debian-based **Linux**, open the installer and follow the instructions. In the case of Windows it may say the app is unrecognized, that's totally normal since the app is not signed. Just hit Run Anyway.
+
+If you're using **Arch** btw, or any Arch-based distro, download the .pacman installer and run the following command:
+
+```
+pacman -U filename.pacman
+```
+
+The AppImage is no Longer recommended. Use it only if you can't use the .deb or .pacman.
 
 You should be able to open Rogue Engine now. Follow me to the next article where I'll show you how to create your first project.
