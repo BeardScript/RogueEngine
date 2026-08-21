@@ -16,6 +16,14 @@ getTags(): string[];
 
 Returns all the registered tags.
 
+#### .getObjects
+
+```typescript
+getObjects(tag: string): THREE.Object3D[];
+```
+
+Returns all objects with the given tag.
+
 #### .getWithAll
 
 ```typescript

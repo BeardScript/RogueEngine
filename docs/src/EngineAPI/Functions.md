@@ -120,7 +120,7 @@ For more information see the [Static Assets](/Workflow/StaticAssets) article.
 ```javascript
 import { getStaticPath } from 'rogue-engine';
 ...
-// Retrieves the addres of the icon at: /Static/icons/myIcon.svg
+// Retrieves the address of the icon at: /Static/icons/myIcon.svg
 imgElement.src = getStaticPath("icons/myIcon.svg");
 
 ```
@@ -195,9 +195,9 @@ doSomething(object: THREE.Object3D) {
 ### pick
 
 ```typescript
-pick(targets: THREE.Object3D[]): THREE.Object3D | undefined
+pick(targets: THREE.Object3D[]): THREE.Intersection[]
 ```
-Picks an object under the pointer device. Supports both mouse and touch.
+Picks a set of objects and their descendants with the pointer. Supports both mouse and touch. It returns a THREE.Intersection[] array with abundant information about the recorded intersection.
 
 **Example:**
 
@@ -210,10 +210,10 @@ update() {
     // Get all objects in the scene with the "Selectable" tag
     const targets = RE.Tags.getWithAll("Selectable");
     // Pick the one under the pointer device.
-    const picked = RE.pick(targets);
+    const pickedObj = RE.pick(targets)[0]?.object;
 
-    if (picked) {
-      // Do something with the picked object.
+    if (pickedObj) {
+      // Do something with the first picked object.
     }
   }
 }
@@ -296,5 +296,23 @@ import * as RE from 'rogue-engine';
 const ndc = RE.getNormalizedDeviceCoordinates(Input.mouse.x, Input.mouse.y);
 
 raycaster.setFromCamera(ndc, RE.App.sceneController.camera);
+
+```
+
+### randomRange
+
+```typescript
+randomRange(min: number, max: number, floor = false): number
+```
+Returns a random number between two numbers with the option to floor the value to get the closest smaller integer. So if we want a number between 1 and 10 you need to set the max to 10 + 0.99. This way we get the same chance for each number.
+
+**Example:**
+
+```javascript
+import * as RE from 'rogue-engine';
+...
+
+// returns an integer between 1 and 10
+let oneToTen = raycaster.randomRange(1, 10.99, true);
 
 ```

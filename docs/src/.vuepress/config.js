@@ -58,12 +58,14 @@ module.exports = {
         collapsable: false,
         children: [
           "/Workflow/EditorLayout",
+          "/Workflow/VisualComponents",
           "/Workflow/ImportingAssets",
           "/Workflow/LoadingAssets",
           "/Workflow/AssetManager",
           "/Workflow/BuildingYourProject",
           "/Workflow/StaticAssets",
           "/Workflow/Marketplace",
+          "/Workflow/InputManager",
         ]
       },
       {
@@ -84,6 +86,7 @@ module.exports = {
           "/EngineAPI/App",
           "/EngineAPI/AudioAsset",
           "/EngineAPI/Component",
+          "/EngineAPI/VisualComponent",
           "/EngineAPI/Debug",
           {
             title: "Input",
