@@ -9,10 +9,10 @@ This is just an abstraction of the [Gamepad](https://developer.mozilla.org/en-US
 #### .deadZone
 
 ```typescript
-axesErrorMargin: number = 0.1;
+deadZone: number = 0.1;
 ```
 
-Axes most usually have a margin of error. Their rest value will not be 0. If the raw absolute value of an axis is smaller or equal to `axesErrorMargin`, `getAxis` will return `0`.
+Axes most usually have a margin of error. Their rest value will not be 0. If the raw absolute value of an axis is smaller or equal to `deadZone`, `getAxis` will return `0`.
 
 #### .gamepad
 
@@ -21,6 +21,30 @@ readonly gamepad: Gamepad;
 ```
 
 This property holds the [Gamepad](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad) object associated to this `GamepadController`.
+
+#### .downButtons
+
+```typescript
+readonly downButtons: { [code: string]: boolean };
+```
+
+A map of the buttons that were pressed in the current frame, keyed by their gamepad button code. Each entry returns `true` only in the frame the button was pressed.
+
+#### .pressedButtons
+
+```typescript
+readonly pressedButtons: { [code: string]: boolean };
+```
+
+A map of the buttons that are currently being held down, keyed by their gamepad button code.
+
+#### .upButtons
+
+```typescript
+readonly upButtons: { [code: string]: boolean };
+```
+
+A map of the buttons that were released in the current frame, keyed by their gamepad button code.
 
 ## Methods
 

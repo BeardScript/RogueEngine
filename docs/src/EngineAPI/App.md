@@ -1,6 +1,8 @@
 ### App
 
-The **App** class is a singleton in charge of fetching and loading scenes when playing them from the editor or built project. Additionally, it gives us access to the current Scene and the active Camera.
+The **App** class is a static class in charge of fetching and loading scenes when playing them from the editor or built project. Additionally, it gives us access to the current Scene, the active Camera and the project configuration.
+
+All of its members are **static**, so you access them through the class itself, like `App.currentScene` or `App.loadScene("MyScene")`.
 
 ### Properties
 
@@ -36,15 +38,47 @@ readonly scenes: { name: string, uuid: string}[];
 
 This object contains a reference to the scenes that we wish to build with our app. The first one in the array will be run first.
 
+#### .settings
+
+```typescript
+readonly settings: any;
+```
+
+The project settings object. It gets populated from the project configuration when the app is initialized.
+
+#### .sceneController
+
+```typescript
+sceneController: SceneController;
+```
+
+The active [SceneController](/EngineAPI/SceneController). It defaults to the [Runtime](/EngineAPI/Runtime) controller and is swapped out by the engine as needed.
+
+#### .lanIP
+
+```typescript
+readonly lanIP: string;
+```
+
+The LAN IP used to serve static assets during development. It defaults to `"localhost"` and is used by [getStaticPath](/EngineAPI/Functions#getstaticpath) to build asset urls while you're developing.
+
 ### Methods
 
 #### .play
 
 ```typescript
-play(): void
+play(config: {
+  title: string,
+  scenes: {name: string, uuid: string}[],
+  assetPaths: { [uuid: string]: string },
+  namedPrefabUUIDs: {[name: string]: string},
+  namedModelUUIDs: {[name: string]: string},
+  tags?: string[],
+  inputConfig?: any,
+}): void
 ```
 
-This function must be called to start the App only in the built project.
+This function must be called to start the App only in the built project. It takes the serialized project configuration (the same data that's stored in the generated `rogue-config.json`), registers the project tags and input action map, and then loads and plays the first scene in the list.
 
 #### .loadScene
 

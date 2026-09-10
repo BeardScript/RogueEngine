@@ -19,7 +19,7 @@ module.exports = {
     // ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: 'icon', type: "image/svg", href: 'RogueEngineLogo.svg' }],
+    ['link', { rel: 'icon', type: "image/svg", href: '/RogueEngineLogo.svg' }],
   ],
 
   /**
@@ -49,7 +49,7 @@ module.exports = {
         collapsable: false,
         children: [
           "/",
-          "/GettingStarted/YourFirstProject",
+          "/GettingStarted/CreateAProject",
           "/GettingStarted/NextSteps",
         ]
       },
@@ -66,6 +66,9 @@ module.exports = {
           "/Workflow/StaticAssets",
           "/Workflow/Marketplace",
           "/Workflow/InputManager",
+          "/Workflow/Audio",
+          "/Workflow/Combat",
+          "/Workflow/UI",
         ]
       },
       {
@@ -74,6 +77,9 @@ module.exports = {
         children: [
           "/Assets/Scenes",
           "/Assets/Materials",
+          "/Assets/Textures",
+          "/Assets/Models",
+          "/Assets/Animations",
           "/Assets/Components",
           "/Assets/AudioAssets",
           "/Assets/Prefabs",
@@ -100,11 +106,83 @@ module.exports = {
             ]
           },
           "/EngineAPI/Prefab",
+          "/EngineAPI/Model",
+          "/EngineAPI/Skybox",
           "/EngineAPI/Runtime",
           "/EngineAPI/SceneController",
           "/EngineAPI/Functions",
           "/EngineAPI/Events",
           "/EngineAPI/Tags",
+          "/EngineAPI/HitMesh",
+          "/EngineAPI/BVH",
+          {
+            title: "Components",
+            path: "/EngineAPI/Components/Components",
+            collapsable: false,
+            children: [
+              "/EngineAPI/Components/Components",
+              {
+                title: "Audio",
+                collapsable: false,
+                children: [
+                  "/EngineAPI/Components/AudioPlayer",
+                  "/EngineAPI/Components/AudioPlayer3D",
+                  "/EngineAPI/Components/AudioMixer",
+                  "/EngineAPI/Components/AudioEffect",
+                  "/EngineAPI/Components/AudioDelay",
+                  "/EngineAPI/Components/AudioReverb",
+                  "/EngineAPI/Components/SoundEnvironment",
+                ]
+              },
+              {
+                title: "Combat",
+                collapsable: false,
+                children: [
+                  "/EngineAPI/Components/Character",
+                  "/EngineAPI/Components/Weapon",
+                  "/EngineAPI/Components/Projectile",
+                  "/EngineAPI/Components/HitSpot",
+                  "/EngineAPI/Components/SurfaceFXManager",
+                ]
+              },
+              {
+                title: "Core",
+                collapsable: false,
+                children: [
+                  "/EngineAPI/Components/Animator",
+                  "/EngineAPI/Components/StatsPanel",
+                  "/EngineAPI/Components/DirectionalLight",
+                  "/EngineAPI/Components/OrbitCamera",
+                  "/EngineAPI/Components/Switch",
+                  "/EngineAPI/Components/SelfDestroy",
+                  "/EngineAPI/Components/Decal",
+                ]
+              },
+              {
+                title: "UI",
+                collapsable: false,
+                children: [
+                  "/EngineAPI/Components/UIElement",
+                  "/EngineAPI/Components/UIContainer",
+                  "/EngineAPI/Components/UIText",
+                  "/EngineAPI/Components/UIButton",
+                  "/EngineAPI/Components/UIInput",
+                  "/EngineAPI/Components/UICheckbox",
+                  "/EngineAPI/Components/UISlider",
+                  "/EngineAPI/Components/UIDropdown",
+                  "/EngineAPI/Components/UISelector",
+                  "/EngineAPI/Components/UIProgressBar",
+                  "/EngineAPI/Components/UITabs",
+                  "/EngineAPI/Components/UIDialog",
+                  "/EngineAPI/Components/UIHTML",
+                  "/EngineAPI/Components/UIStyle",
+                  "/EngineAPI/Components/UISettings",
+                  "/EngineAPI/Components/CSS2D",
+                  "/EngineAPI/Components/HTMLMeshComponent",
+                ]
+              },
+            ]
+          },
         ]
       },
     ]

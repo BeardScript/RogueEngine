@@ -128,13 +128,13 @@ class MyComponent extends RE.Component {
   @RE.props.prefab() prefab: RE.Prefab;
   @RE.props.material() mat: THREE.Material;
   @RE.props.audio() sound: THREE.Audio;
-  @RE.props.audio(true) positionalSound: TREE.PositionalAudio;
-  @RE.props.animation() clip: TREE.AnimationClip;
-  @RE.props.texture() texture: TREE.Texture;
+  @RE.props.audio(true) positionalSound: THREE.PositionalAudio;
+  @RE.props.animation() clip: THREE.AnimationClip;
+  @RE.props.texture() texture: THREE.Texture;
 
   @RE.props.group("Others", true)
   @RE.props.data() serializeThis = {prop: "Hello World"};
-  @RE.props.component(ComponentClass) myComponent: ComonentClass;
+  @RE.props.component(ComponentClass) myComponent: ComponentClass;
   @RE.props.code("html") inlineCodeEditor = ``; // options: "json" | "html" | "glsl"
   @RE.props.vector2() vector = new THREE.Vector2();
   @RE.props.vector3() vector = new THREE.Vector3();
@@ -162,7 +162,7 @@ class MyComponent extends RE.Component {
 You can use `@RE.props.group()` to visually organize properties in the inspector.
 
 ```typescript
-  @RE.prop.text() outside = "This prop is outside the group"
+  @RE.props.text() outside = "This prop is outside the group"
 
   // Every prop bellow group() will be inside a foldable until you open the next one.
   @RE.props.group("My Foldable Group", true)
@@ -179,12 +179,12 @@ You can use `@RE.props.group()` to visually organize properties in the inspector
   @RE.props.num() numProp = 420; // This prop is bellow the line separator.
 ```
 
-#### Prop (Dropped)
+#### Prop (Legacy)
 
 ```typescript
 @Prop(type: string)
 ```
-**This is no longer supported, use [RE.props](#decorators) instead**
+**This one is still exported for backwards compatibility, but [RE.props](#decorators) is the recommended way to go.**
 
 The **@Prop** decorator helps us define our component's [interface](#component-interface) in a much cleaner way. The decorated properties will show in the editor, in our component's inspector.
 
@@ -197,7 +197,7 @@ class MyComponent extends RE.Component {
 }
 ```
 
-Allowed types are the same as for the [interface static property](#component-interface).
+Allowed types are the same as for [Component.interface](#component-interface).
 
 ### Properties
 
@@ -213,15 +213,13 @@ The name of the component. This can be used as an identifier to retrieve it with
 
 ```typescript
 
-static interface: ComponentInterface
+interface: ComponentInterface
 
 ```
 
-The static interface object defines the graphic interface of our component.
+The interface object defines the graphic interface of our component. It's an instance property, but in practice it's handled in the background by the [property decorators](#decorators), so for most cases it's encouraged to leave it alone and use those instead.
 
-This is handled in the background by the [property decorators](#decorators) so for most cases, it's encouraged to leave this alone and use that instead.
-
-This property has a ComponentInterface type which, maps a property name with a specific string describing the type of the property:
+This property has a **ComponentInterface** type which maps a property name with a specific string describing the type of the property:
 
 ```typescript
 type ComponentInterface = {
@@ -234,15 +232,24 @@ type ComponentInterface = {
     | "Select"
     | "Object3D"
     | "Prefab"
+    | "Model"
     | "Texture"
     | "Material"
+    | "Component"
     | "Color"
+    | "ColorString"
     | "Audio"
-    | "PositionalAudio";
+    | "PositionalAudio"
+    | "AnimationClip"
+    | "Button"
+    | "Data"
+    | "Code";
 }
 ```
 
 Each of these options will display a different type of property controller interface in the Component inspector.
+
+List and map props (the ones you'd normally create with `props.list` and `props.map`) are represented under the hood with an object form `{ type, isMap, options }`, but you don't need to worry about that when you use the decorators.
 
 Keep in mind that **propName** must be a valid public property within the component.
 
@@ -284,6 +291,22 @@ A component that is not ready will only execute the [awake](#awake) method. As s
 When using the component from another script, you should check this property to make sure the assets declared in its interface property are loaded before using them. you can safely use them in all methods of the component they belong to, with exception of its [awake](#awake) method.
 
 If all the assets declared in its interface property are set to **preload** in the [AssetManager](/Workflow/AssetManager) or have been **kept loaded** from previous scenes, the component will be immediately ready.
+
+#### .enabled
+
+```typescript
+enabled: boolean
+```
+
+Whether this component is enabled. Disabled components stop receiving their lifecycle callbacks (like [update](#update)) until they're enabled again. Setting this property to `false` triggers the [onDisabled](#ondisabled) method, and setting it back to `true` will awake the component again.
+
+#### .uuid
+
+```typescript
+readonly uuid: string
+```
+
+The unique identifier of this component instance.
 
 ### Methods
 
@@ -352,7 +375,7 @@ This method will be executed when the [removeComponent](/EngineAPI/Functions#rem
 #### .onBeforeObjectRemoved
 
 ```typescript
-onBeforeObjetRemoved(): void
+onBeforeObjectRemoved(): void
 ```
 
 This method will be executed just *before* the [remove](https://threejs.org/docs/#api/en/core/Object3D.remove) method for the `Object3D` to which this object belongs is called.
@@ -364,3 +387,11 @@ onObjectRemoved(): void
 ```
 
 This method will be executed right *after* the [remove](https://threejs.org/docs/#api/en/core/Object3D.remove) method for the [Object3D](https://threejs.org/docs/#api/en/core/Object3D) to which this object belongs is called.
+
+#### .onDisabled
+
+```typescript
+onDisabled(): void
+```
+
+This method will be executed when the component (or the object it belongs to) gets disabled, whether that's through the [enabled](#enabled) property, the [setEnabled](/EngineAPI/Functions#setenabled) function or by disabling the object in the editor.

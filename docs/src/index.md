@@ -24,4 +24,4 @@ pacman -U filename.pacman
 
 The AppImage is no Longer recommended. Use it only if you can't use the .deb or .pacman.
 
-You should be able to open Rogue Engine now. Follow me to the next article where I'll show you how to create your first project.
+You should be able to open Rogue Engine now. Follow me to the next article where I'll show you how to create a project.

@@ -4,7 +4,7 @@ There are two types of Assets that you might want to load: Rogue Assets, and ext
 
 ### Rogue Assets
 
-These are [Scenes](/assets/Scenes), [Materials](/assets/Materials), [Audio Assets](/assets/AudioAssets), [Components](/assets/Components), and [Prefabs](/assets/Prefabs). To learn how to "load" any of these check their respective articles.
+These are [Scenes](/assets/Scenes), [Materials](/assets/Materials), [Audio Assets](/assets/AudioAssets), [Components](/assets/Components), [Prefabs](/assets/Prefabs), and [Animations](/assets/Animations). To learn how to "load" any of these check their respective articles.
 
 ### External Assets
 
@@ -12,15 +12,15 @@ These can be Images, 3d models, audio files, etc. There are multiple ways you ca
 
 #### Images
 
-Images can be used by Materials and the Skybox. To load them, drop them on an Image field in the Inspector.
+Images can be used by Materials and the Skybox. To load them, drop them on an Image field in the Inspector. To learn how images work as texture assets, check the [Textures](/assets/Textures) article.
 
-**Supported image formats: jpg, png.**
+**Supported image formats: png, jpg, webp, gif, tga, tif.**
 
 #### 3d Models
 
-To load a 3D model you can drag the file and drop it either directly on the **Scene** window, the **Hierarchy** or a particular object in the **Hierarchy** if you wish to nest it.
+To load a 3D model you can drag the file and drop it either directly on the **Scene** window, the **Hierarchy** or a particular object in the **Hierarchy** if you wish to nest it. Models are first class assets now, so check the [Models](/assets/Models) article to learn how they work in scenes, prefabs and at runtime.
 
-**Supported 3d model formats: gltf, fbx, obj.**
+**Supported 3d model formats: gltf, fbx, glb.**
 
 **Note:** Please use **GLTF** whenever possible. This is the better supported format for WebGL.
 

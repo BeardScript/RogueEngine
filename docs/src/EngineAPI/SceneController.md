@@ -28,13 +28,13 @@ readonly deltaTime: number
 
 This value represents the seconds elapsed between the last frame and the current one.
 
-#### .clock
+#### .timer
 
 ```typescript
-readonly clock: THREE.Clock
+readonly timer: THREE.Timer
 ```
 
-The three.js [Clock](https://threejs.org/docs/#api/en/core/Clock) being used to keep track of time.
+The three.js [Timer](https://threejs.org/docs/#api/en/core/Timer) being used to keep track of time. This property replaced the old `clock` property, since three.js moved away from `Clock`.
 
 ### .height
 
@@ -133,6 +133,22 @@ useAspectRatio: boolean;
 This makes the aspect ratio visible in the current Runtime. It's used by the editor to preview the aspect ratio in edit mode.
 
 ### Methods
+
+#### .play
+
+```typescript
+play(scene: THREE.Scene, renderer?: THREE.WebGLRenderer, componentsToLoad?): void
+```
+
+Starts the render loop for the given scene. It sets up the renderer, loads the scene materials and components, and then runs the **awake()** and **start()** methods on all of them. The [Runtime](/EngineAPI/Runtime) controller calls this for you whenever a scene is loaded.
+
+#### .stop
+
+```typescript
+stop(): void
+```
+
+Stops the render loop and fires the [onStop](#onstop) callbacks. You don't usually need to call this yourself, the engine takes care of it when you load another scene.
 
 #### .pause
 ``` typescript

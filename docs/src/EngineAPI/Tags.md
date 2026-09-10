@@ -6,6 +6,8 @@ For instance, you could have a "human" tag, to identify a human character, and a
 
 You could have some objects with both the "human" and "player" tags to define them as "human players".
 
+All of its members are **static**, so you access them directly through the class, like `Tags.set(object, "player")`.
+
 ## Methods
 
 #### .getTags
@@ -70,7 +72,7 @@ Checks if an object has none of the given tags.
 isMissingAll(object: THREE.Object3D, ...tags: string[]): boolean;
 ```
 
-Checks if an object is missing all of the given tags.
+Checks if an object is missing at least one of the given tags. In other words, it returns `true` when the object doesn't have all of the given tags.
 
 #### .get
 
@@ -103,3 +105,35 @@ create(...tags: string[]): void;
 ```
 
 Creates the given tags. If a tag is already present it will be omitted.
+
+#### .delete
+
+```typescript
+delete(...tags: string[]): void;
+```
+
+Deletes the given tags entirely and removes them from every object that has them.
+
+#### .removeObjectMapping
+
+```typescript
+removeObjectMapping(object: THREE.Object3D): void;
+```
+
+Removes an object from all tag maps. The object's tags are cleaned up from the registry without deleting the tags themselves.
+
+#### .clearMaps
+
+```typescript
+clearMaps(): void;
+```
+
+Empties every tag's object list while keeping the tag names registered. Handy to wipe the scene's tags before unloading it.
+
+#### .clear
+
+```typescript
+clear(): void;
+```
+
+Removes all tags and all object mappings. This clears the tag system completely.

@@ -49,7 +49,7 @@ This method creates a PositionalAudio object with the buffer information in the 
 #### AudioAsset.fromFile
 
 ```typescript
-static fromFile(filePath: string): Promise<AudioAsset>;
+static fromFile(filePath: string, onProgress?: () => void, onError?: () => void): Promise<AudioAsset>;
 ```
 
-This static method of AudioAsset takes the path of a **.rogueAudio** file and returns an instance of AudioAsset. You should use this method, instead of instantiating the class manually.
+This static method of AudioAsset takes the path of a **.rogueAudio** file and returns an instance of AudioAsset. You should use this method, instead of instantiating the class manually. Optionally, you can pass in a couple of callbacks to keep track of the loading progress and to be notified if the file fails to load.

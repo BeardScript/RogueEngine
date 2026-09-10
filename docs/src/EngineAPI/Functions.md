@@ -313,6 +313,46 @@ import * as RE from 'rogue-engine';
 ...
 
 // returns an integer between 1 and 10
-let oneToTen = raycaster.randomRange(1, 10.99, true);
+let oneToTen = RE.randomRange(1, 10.99, true);
+
+```
+
+### isDev
+
+```typescript
+isDev(): boolean
+```
+
+Returns whether the project is running in development mode. Handy if you want to run some code only while developing, like logging extra debug info that you don't want in your builds.
+
+**Example:**
+
+```javascript
+import * as RE from 'rogue-engine';
+...
+
+if (RE.isDev()) {
+  // Do something only in development mode.
+}
+
+```
+
+### dispose
+
+```typescript
+dispose(object: THREE.Object3D): void
+```
+
+Recursively disposes the geometry, materials and skeleton resources of an object, and detaches it from its parent. Use it to free up GPU memory before you remove objects from the scene, especially if you're instantiating and destroying a lot of them.
+
+**Example:**
+
+```javascript
+import * as RE from 'rogue-engine';
+...
+
+// Get rid of the object and its GPU resources for good.
+RE.dispose(myObject);
+myObject.removeFromParent();
 
 ```

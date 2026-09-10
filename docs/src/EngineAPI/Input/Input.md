@@ -27,10 +27,10 @@ The [Keyboard](/EngineAPI/Input/Keyboard) instance being used to handle keyboard
 #### .touch
 
 ```typescript
-touch: Touch
+touch: TouchController
 ```
 
-The [Touch](/EngineAPI/Input/TouchController) instance being used to handle touch events.
+The [TouchController](/EngineAPI/Input/TouchController) instance being used to handle touch events.
 
 #### .gamepads
 
@@ -57,7 +57,7 @@ This is the input configuration for all players, where the numeric values repres
 ```typescript
 {
   MouseAndKeyboard: 0, // Player 1 will use Mouse and keyboard
-  Gamepads: [0], // Player 1 will use gamepad at 0
+  Gamepads: [0, 1], // Player 1 and Player 2 will use gamepads at 0 and 1
 }
 ```
 
@@ -73,6 +73,14 @@ RE.Input.playerInputs = {
 RE.Input.playerInputs.Gamepads[2] = 3;
 ```
 
+#### .actionMap
+
+```typescript
+actionMap: InputAction;
+```
+
+The current action bindings, keyed by action name. This is what [setActionMap](#setactionmap) replaces, and what the [Input Manager](/Workflow/InputManager) builds for you.
+
 ### Methods
 
 #### .setActionMap
@@ -83,7 +91,7 @@ setActionMap(bindings: InputAction): void
 
 <div class="language-typescript extra-class">
 <pre class="language-typescript">
-<code><span class="token function">setActionMap</span>(bindings: <a href="#inputaction-type">GamepadAxes</a>): void
+<code><span class="token function">setActionMap</span>(bindings: <a href="#inputaction-type">InputAction</a>): void
 </code></pre></div>
 
 Set the Input bindings for the actions in your app by passing in an [InputAction](#inputaction-type) object. This will replace any existing bindings.
@@ -107,7 +115,7 @@ Input.setActionMap({
   },
   Jump: { type: "Button", Keyboard: "Space", Gamepad: 0, Touch: 1 },
   Fire: { type: "Button", Mouse: 0, Gamepad: 7, Touch: 0 },
-  Select: { type: "Button", Mouse: 0, Touch: "Tap" },
+  "View.Select": { type: "Button", Mouse: 0, Touch: "Tap" },
 });
 ```
 
@@ -135,7 +143,7 @@ You can pass in an optional index parameter to set the mapping only for a specif
 // Set the Move action for player 2 to use the right stick.
 RE.Input.bindAxes("Move", {Gamepad: {x: 2, y: 3}}, 1);
 
-// This will replace the existing defualt binding of axis 0 and set
+// This will replace the existing default binding of axis 0 and set
 // it to the Steer action.
 RE.Input.bindAxes("Steer", {Gamepad: {x: 0}});
 // To prevent that create a separate mapping using the Mapping.Action
@@ -145,9 +153,9 @@ RE.Input.bindAxes("Vehicle.Steer", {Gamepad: {x: 0}, Keyboard: [,,"KeyA", "KeyD"
 
 // Trigger the Look function with multiple bindings
 RE.Input.bindAxes("Look", {
-  // Using the left stick with an optional multiplier to adjust the
+  // Using the right stick with an optional multiplier to adjust the
   // sensitivity and direction.
-  Gamepad: {x: 2, y: 3, mult: {x: 5, y: -2},
+  Gamepad: {x: 2, y: 3, mult: [5, -2]},
   // To use the mouse we must pass in the sensitivity. In this case,
   // we're cutting it by half.
   Mouse: [0.5, 0.5],
@@ -155,7 +163,7 @@ RE.Input.bindAxes("Look", {
   // and passing in an optional multiplier to adjust the sensitivity
   // and direction
   Touch: {area: "right", mult: [2, 2]},
-}});
+});
 ```
 
 #### .bindButton
@@ -169,15 +177,15 @@ bindButton(actionName: string, bind: {
 }, player?: number): void
 ```
 
-Set the Input bindings for an button-based action. You can define a binding for any or all input devices at once.
+Set the Input bindings for a button-based action. You can define a binding for any or all input devices at once.
 
 You can pass in an optional index parameter to set the mapping only for a specific player's configuration. This will only make sense for the case of Gamepads, naturally.
 
 In the case of the Gamepad, the number represents a gamepad button same as for the [GamepadController](/EngineAPI/Input/GamepadController).
 
-In the case of the Keyboard, the string reprensents the standard [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code/code_values)
+In the case of the Keyboard, the string represents the standard [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code/code_values)
 
-In the case of the Mouse, we can pass in the standard button number or "WeelUp"/"WeelDown" to capture the sequential wheel movement.
+In the case of the Mouse, we can pass in the standard button number or "WheelUp"/"WheelDown" to capture the sequential wheel movement.
 
 In the case of the Touch, we can pass in the button index as defined in [RE.Input.touch.buttons](/EngineAPI/Input/TouchController#buttons) or alternatively, the "Tap" action detects a single tap on the screen.
 
@@ -186,7 +194,7 @@ In the case of the Touch, we can pass in the button index as defined in [RE.Inpu
 ```typescript
 // Set a "Jump" action to trigger with the Space key, Gamepad button 0 or the Touch button 1
 RE.Input.bindButton("Jump", {Keyboard: "Space", Gamepad: 0, Touch: 1});
-// Set a "Select" action to trigger whith the left mouse button or a Tap on the screen.
+// Set a "Select" action to trigger with the left mouse button or a Tap on the screen.
 RE.Input.bindButton("Select", {Mouse: 0, Touch: "Tap"});
 
 // This will replace the existing binding of the left mouse button to be used for DoStuff
@@ -196,13 +204,21 @@ RE.Input.bindButton("DoStuff", {Mouse: 0});
 RE.Input.bindButton("MyMapping.DoStuff", {Mouse: 0});
 ```
 
-<!-- #### .getBindings
+#### .getBindings
 
 ```typescript
 getBindings(actionName: string): InputAxesBinds | InputBinds
 ```
 
-Return the bindings for the given action. Check out the [Types](#inputaction-type) section to see the structure. -->
+Returns the current bindings for the given action. Check out the [Types](#inputaction-type) section to see the structure.
+
+#### .renameAction
+
+```typescript
+renameAction(actionName: string, newName: string): void
+```
+
+Renames an action and rebuilds the action map with the new name. Handy if you want to change an action name at runtime, like when you load a different input configuration.
 
 
 #### .getAxes
@@ -285,7 +301,7 @@ Captures a button-based action on every frame that it's active. You need to pass
 import * as RE from "rogue-engine";
 ...
 update() {
-  if (RE.Input.getDown("Fire")) {
+  if (RE.Input.getPressed("Fire")) {
     this.rainbowPrefab.instantiate();
   }
 }
@@ -343,7 +359,7 @@ RE.Input.bindAxes("Move", {Gamepad: [12, 13, 14, 15, [0.5, 0.5]]}, 1);
 
 // Trigger the Look function with the right stick and pass in an optional multiplier vector 
 // to adjust the sensitivity and direction.
-RE.Input.bindAxes("Look", {Gamepad: {x: 2, y: 3, mult: {x: 5, y: -2}}});
+RE.Input.bindAxes("Look", {Gamepad: {x: 2, y: 3, mult: [5, -2]}});
 ```
 
 #### KeyboardAxes Type
@@ -469,8 +485,8 @@ This is the representation of the bindings for a button-based action.
 
 In the case of the Gamepad, the number represents a gamepad button same as for the [GamepadController](/EngineAPI/Input/GamepadController).
 
-In the case of the Keyboard, the string reprensents the standard [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code/code_values)
+In the case of the Keyboard, the string represents the standard [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code/code_values)
 
-In the case of the Mouse, we can pass in the standard button number or "WeelUp"/"WeelDown" to capture the sequential wheel movement.
+In the case of the Mouse, we can pass in the standard button number or "WheelUp"/"WheelDown" to capture the sequential wheel movement.
 
 In the case of the Touch, we can pass in the button index as defined in [RE.Input.touch.buttons](/EngineAPI/Input/TouchController#buttons) or alternatively, the "Tap" action detects a single tap on the screen.

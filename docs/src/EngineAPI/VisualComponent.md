@@ -6,6 +6,8 @@ Enter, the `VisualComponent` class. An extension of the `Component` class that w
 
 Much of its interface is meant to be used internally interconnecting the Engine and the `Visual Component Editor`, so here we'll focus only on the relevant parts.
 
+A note on types: the config types used below (`VisualComponentData`, `RogueBrick`, `RogueActionConfig`, `RogueBlockConfig`, `RogueEventConfig`, `RogueConditionConfig` and their friends) are all exported from `rogue-engine` through the `VCTypes` namespace, so you can use them when you define bricks in code. A couple of helper types you'll see in the signatures, like `RogueBrickParam` and `RogueBrickReturn`, are shown here for readability and aren't exported.
+
 ```ts
 class VisualComponent extends Component {
   static getParamType(

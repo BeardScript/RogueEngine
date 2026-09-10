@@ -30,7 +30,7 @@ async start() {
   // Location: Assets/Prefabs/MyPrefab.roguePrefab
   const instance = await RE.Prefab.instantiate("MyPrefab");
   // Location: Assets/Prefabs/Enemies/Nemesis.roguePrefab
-  const nemesis = await RE.prefab.instantiate("Enemies/Nemesis");
+  const nemesis = await RE.Prefab.instantiate("Enemies/Nemesis");
 }
 
 ```
@@ -46,7 +46,7 @@ Asynchronously fetch a prefab within `Assets/Prefabs/`, by their "name path", or
 
 async start() {
   // Location: Assets/Prefabs/Enemies/Nemesis.roguePrefab
-  const nemesisPrefab = await RE.prefab.fetch("Enemies/Nemesis");
+  const nemesisPrefab = await RE.Prefab.fetch("Enemies/Nemesis");
   const instance = nemesisPrefab.instantiate();
 }
 
@@ -64,7 +64,7 @@ Synchronously fetch a prefab within `Assets/Prefabs/`, by their "name path", or 
 
 start() {
   // Location: Assets/Prefabs/Enemies/Nemesis.roguePrefab
-  const nemesisPrefab = RE.prefab.get("Enemies/Nemesis");
+  const nemesisPrefab = RE.Prefab.get("Enemies/Nemesis");
   const instance = nemesisPrefab.instantiate();
 }
 
@@ -105,6 +105,8 @@ instantiate(parent?: THREE.Object3D): THREE.Object3D;
 ```
 
 This method instantiates the Prefab either directly into the Scene. Optionally, you can pass in an [Object3D](https://threejs.org/docs/#api/en/core/Object3D) as the parent.
+
+By default, the instance keeps a link to its source prefab file. If you set the `Always Instantiate Unlinked` checkbox in the Asset Inspector, or hold `Alt/Opt` while dropping the prefab in the scene, the instance is created unlinked, which makes it a plain copy that no longer updates from the original file.
 
 ```typescript
 

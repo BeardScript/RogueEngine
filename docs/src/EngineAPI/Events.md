@@ -71,6 +71,30 @@ onComponentAdded((component, target) => {
 
 ```
 
+### onComponentLoaded
+
+```typescript
+onComponentLoaded(callback: (component: Component, target: THREE.Object3D) => void): {stop: () => void}
+```
+
+This event listener takes a callback function as a parameter to be executed whenever a component is loaded onto an object, for instance, when a scene or a prefab is loaded and its serialized components get built. The callback gives us the component and the target object as parameters.
+
+Remember to stop listening to this event when you don't need it anymore by calling the **stop()** function in the object returned by this function.
+
+### Example
+
+```javascript
+import { onComponentLoaded } from 'rogue-engine';
+...
+
+onComponentLoaded((component, target) => {
+// Do something
+});
+
+...
+
+```
+
 ### onComponentRemoved
 
 ```typescript

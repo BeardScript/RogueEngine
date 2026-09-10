@@ -1,14 +1,43 @@
-### Your First Project
+### Create a project
 
 The first thing you'll see when starting Rogue Engine is the start window, where you can create and open projects.
 
-### Creating a project
+To create a new one, open the **New Project** window from the start window or from the Rogue Engine menu with **File -> New Project**.
 
-To create a project, use the **name** field to give it a name and then select the path where it'll be created. The default path for your projects is `documents/RogueProjects`.
+At the top of the window you get two tabs, **Templates** and **From Project**. Pick whichever suits you, then give the project a name and a path and click **Create Project**.
+
+### Starting from a Template
+
+The **Templates** tab lets you start from a project that's already set up instead of an empty one. The first tile is always **Blank Project**, an empty project with no extra packages. Below it you'll find:
+
+- **Rapier Physics**: a blank project with Rapier Physics.
+- **Vehicle Template**: a basic Rapier vehicle.
+- **Third Person Template**: a Rapier kinematic third person controller example.
+- **Rapier Aircraft** (premium): an aircraft starter kit powered by Rapier.
+- **Rapier FPS** (premium): an FPS template powered by Rapier.
+
+Templates come as packages, so your new project opens with everything it needs already installed. No hunting around the Marketplace before you can hit play.
+
+Two things to keep in mind:
+
+- Templates other than **Blank Project** require you to be signed in, since they're fetched from the cloud. If you're not signed in, the tile asks you to sign in first.
+- Premium templates need an account or license that covers them. Locked tiles show a padlock until you sign in with the right account.
+
+### Starting from an Existing Project
+
+The **From Project** tab creates a new project based on one you already have. Pick a recent project from the list, or click **Browse for a project...** and point it at a folder.
+
+This is handy when you want a copy to experiment on, fork, or hand to someone, without touching the original project. You also get here directly when you use **Duplicate** on a project.
+
+### Finishing up
+
+Now give your project a **name** and choose where to put it. The name can contain letters, numbers, dashes and underscores. The default path is `documents/RogueProjects`.
 
 Your project will be created at `selected/path/ProjectName`, so you don't have to worry about creating a sub-directory with the project name.
 
-When you're ready, click on **create**. This will create your project files and install the required node modules so **make sure you are connected to the internet before you do this**.
+If there's already a project with that name in the location you picked, the window will tell you, so just change one of the two.
+
+When you're ready, click **Create Project**. This will create your project files and install the required node modules, so **make sure you are connected to the internet before you do this**.
 
 When your project is created it will open in the editor. Now you can start [importing assets](/Workflow/ImportingAssets) and [creating Scenes](/assets/Scenes) and [components](/assets/Components).
 

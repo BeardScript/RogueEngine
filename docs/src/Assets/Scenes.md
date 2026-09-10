@@ -4,6 +4,8 @@ Scenes are the scenario where we display our assets and create our environments.
 
 Scenes are stored in **.rogueScene** files that contain the serialization of the three.js [Scene](https://threejs.org/docs/#api/en/scenes/Scene) object, the components being used by the objects in the scene, the [Skybox](/Workflow/EditorLayout#skybox-window), and the [asset configurations](/Workflow/AssetManager#asset-configurations).
 
+You can also read and modify the skybox from code at runtime through the [Skybox](/EngineAPI/Skybox) API.
+
 ### Default Scene
 
 When opening the editor you'll see the default scene where you can start creating right away. Don't forget to [save it](#saving-a-scene)!

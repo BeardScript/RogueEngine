@@ -31,3 +31,5 @@ To create a new prefab based on the current one, open it in the Prefab Editor or
 ### Learn More
 
 To learn how you can use Prefabs in your components see the documentation for the [Prefab](/EngineAPI/Prefab) class.
+
+3D model files behave in a very similar way. To learn how they work as assets, and how to load and instantiate them by name, check the [Models](/Assets/Models) article.
