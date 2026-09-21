@@ -11,6 +11,7 @@ When a [Weapon](/EngineAPI/Components/Weapon) fires this, it reports hits back t
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | speed | number | `5` | Speed in units per second. |
+| lifetime | number | `5` | Seconds before it expires when it hits nothing. `0` means never. |
 | hitFX | prefab | | The fallback impact prefab, dropped when no surface FX matches. |
 | intensity | number | `1` | Scales spawned impact effects. |
 | surfaceFXName | text | `""` | The name of the [SurfaceFXManager](/EngineAPI/Components/SurfaceFXManager) to use. Empty finds the first one in the scene. |

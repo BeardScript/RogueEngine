@@ -83,10 +83,12 @@ This function must be called to start the App only in the built project. It take
 #### .loadScene
 
 ```typescript
-loadScene(name: string | number): Promise<void>
+loadScene(name: string | number, loading?: boolean): Promise<void>
 ```
 
 Call this function to asynchronously load a scene. Scenes, like all Assets in Rogue Engine, are not loaded in memory until after they are fetched in order to save on resources. The loaded scene will be immediately played by the [Runtime](/EngineAPI/Runtime) controller.
+
+Pass `true` as the second parameter to put up the [loading screen](/EngineAPI/LoadingScreen) while the scene loads. Leave it out for a quick swap, or when you're covering the load yourself.
 
 
 #### .clone

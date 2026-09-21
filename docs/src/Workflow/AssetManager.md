@@ -37,3 +37,9 @@ If an asset configuration for the incoming scene has an **override** this will t
 ### Saving Configurations
 
 Asset Configurations are saved in the Scene so, whenever you make a change in the Asset Manager window, remember to save your scene.
+
+### Replacing an Asset
+
+Importing over a file, or dropping one onto another in the File Manager, keeps the asset's uuid and updates what you're already looking at. A model is rebuilt from the new file, and a texture, a material, a texture array, a sound and an animation are swapped for the new one, in the scene and in the editor.
+
+A prefab is the exception. An instance keeps what it has until you ask for an update, since rebuilding one could take your own edits with it.

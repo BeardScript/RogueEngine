@@ -12,6 +12,18 @@ Every Directional Light in the editor gets this component by default.
 |---|---|---|---|
 | target | object3d | | The object the light should point at and follow. |
 
+### Cascaded Shadows
+
+Tick **Cascaded** in the light's inspector to split its shadow range into a few cascades, so the shadows near the camera stay sharp across a big level. New scenes come with their sun already cascaded.
+
+One directional light drives cascades at a time. Any other visible directional light is stood down while it does.
+
+```typescript
+RE.CascadedShadows.enable(sun, { cascades: 3, maxFar: 300, fade: true });
+```
+
+See [CascadedShadows](/EngineAPI/CascadedShadows) for the settings.
+
 ### Methods
 
 - `translateLight()`: moves the light to follow the target and keeps the shadows snapped to the texel grid.

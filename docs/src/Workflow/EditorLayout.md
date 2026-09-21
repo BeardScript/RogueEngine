@@ -18,6 +18,17 @@ Let's look at each of the default Editor Windows one by one:
 
 The Project Window contains a file manager where you have access to all of your assets. Feel free to organize them however you want.
 
+It has multi-select support now:
+
+- Click picks one file, `Cmd`/`Ctrl` click adds or drops one, `Shift` click picks a range.
+- A selection drags as a whole: into another folder, into the Hierarchy, into the Scene view, or onto a field that takes a single file.
+- Dropping several files into the Hierarchy or the Scene puts them in a grid where you dropped them, with a gap sized to what they are, instead of stacking them all on one spot. A prefab dropped into the Hierarchy sits at the node it was dropped on. Hold `Alt/Opt` to keep the position and orientation it was saved with.
+- Duplicating a selection asks for one base name, and numbers every copy after it.
+- Creating an asset asks for a name. Materials and texture arrays used to be created silently with a type name, now they ask like everything else.
+- A created asset is scrolled to and picked, so you can see where it landed.
+
+In the vertical view, clicking anywhere on a row picks the file. Clicking the icon opens it in the Asset Inspector.
+
 #### Console Window
 
 The Console Window is where you'll see any logs coming from the [Debug](/EngineAPI/Debug) class.

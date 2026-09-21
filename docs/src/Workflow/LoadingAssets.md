@@ -12,9 +12,9 @@ These can be Images, 3d models, audio files, etc. There are multiple ways you ca
 
 #### Images
 
-Images can be used by Materials and the Skybox. To load them, drop them on an Image field in the Inspector. To learn how images work as texture assets, check the [Textures](/assets/Textures) article.
+Images can be used by Materials and the Skybox. To load them, drop them on an Image field in the Inspector. To learn how images work as texture assets, check the [Textures](/assets/Textures) article, and [Texture Arrays](/assets/TextureArrays) to pack many images into one texture.
 
-**Supported image formats: png, jpg, webp, gif, tga, tif.**
+**Supported image formats: png, jpg, webp, gif, tga, tif, ktx2.**
 
 #### 3d Models
 

@@ -78,6 +78,7 @@ module.exports = {
           "/Assets/Scenes",
           "/Assets/Materials",
           "/Assets/Textures",
+          "/Assets/TextureArrays",
           "/Assets/Models",
           "/Assets/Animations",
           "/Assets/Components",
@@ -90,6 +91,7 @@ module.exports = {
         collapsable: false,
         children: [
           "/EngineAPI/App",
+          "/EngineAPI/LoadingScreen",
           "/EngineAPI/AudioAsset",
           "/EngineAPI/Component",
           "/EngineAPI/VisualComponent",
@@ -108,6 +110,9 @@ module.exports = {
           "/EngineAPI/Prefab",
           "/EngineAPI/Model",
           "/EngineAPI/Skybox",
+          "/EngineAPI/TextureArray",
+          "/EngineAPI/TileSelection",
+          "/EngineAPI/Palette",
           "/EngineAPI/Runtime",
           "/EngineAPI/SceneController",
           "/EngineAPI/Functions",
@@ -115,6 +120,9 @@ module.exports = {
           "/EngineAPI/Tags",
           "/EngineAPI/HitMesh",
           "/EngineAPI/BVH",
+          "/EngineAPI/Batching",
+          "/EngineAPI/CascadedShadows",
+          "/EngineAPI/ShaderPatch",
           {
             title: "Components",
             path: "/EngineAPI/Components/Components",
@@ -150,6 +158,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                   "/EngineAPI/Components/Animator",
+                  "/EngineAPI/Components/Animator2D",
                   "/EngineAPI/Components/StatsPanel",
                   "/EngineAPI/Components/DirectionalLight",
                   "/EngineAPI/Components/OrbitCamera",
